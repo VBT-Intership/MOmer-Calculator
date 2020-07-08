@@ -1,0 +1,7 @@
+name: calculator
+description: VBT-Calculator
+version: 0.0.1
+author: mukireus
+
+dependencies:
+  colorize: any
