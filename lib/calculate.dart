@@ -1,7 +1,10 @@
+import 'package:colorize/colorize.dart';
+
 class Calculate {
   double numberOne;
   double numberTwo;
   int processId;
+  double result;
 
   Calculate({
     this.numberOne,
@@ -12,12 +15,13 @@ class Calculate {
   // todo
   void calculate(processId) {
     (processId == 0)
-        ? sum(numberOne, numberTwo)
+        ? result = sum(numberOne, numberTwo)
         : (processId == 1)
-            ? sub(numberOne, numberTwo)
+            ? result = sub(numberOne, numberTwo)
             : (processId == 2)
-                ? mul(numberOne, numberTwo)
-                : (processId == 3) ? div(numberOne, numberTwo) : print("error");
+                ? result = mul(numberOne, numberTwo)
+                : (processId == 3) ? result = div(numberOne, numberTwo) : print("error");
+    writeAnswer(result);
   }
 
   double sum(numberOne, numberTwo) => numberOne + numberTwo;
@@ -27,4 +31,11 @@ class Calculate {
   double mul(numberOne, numberTwo) => numberOne * numberTwo;
 
   double div(numberOne, numberTwo) => numberOne / numberTwo;
+}
+
+void writeAnswer(double result) {
+  String writing = "Çıkan Sonuç : " + result.toString();
+  Colorize resultColor = new Colorize(writing);
+  resultColor.bgRed();
+  print(resultColor);
 }

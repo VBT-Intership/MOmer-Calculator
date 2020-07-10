@@ -1,18 +1,27 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:calculator/calculate.dart';
 import 'package:colorize/colorize.dart';
 
 void main() {
-  // Calculate numb1 = Calculate(numberOne: 1, numberTwo: 2);
-  // print(numb1.calculate(2));
-
   welcomeWrite;
-  processWrite;
 
-  // STDIN
-  var line = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
+  print("Hesaplamak istediğiniz ilk sayıyı giriniz : ");
+  var _numberOne = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
+
+  print("Hesaplamak istediğiniz ikinci sayıyı giriniz : ");
+  var _numberTwo = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
+
+  processWrite;
+  var _processId = stdin.readLineSync(encoding: Encoding.getByName('utf-8'));
+
+  Calculate calculate =
+      Calculate(numberOne: double.parse(_numberOne), numberTwo: double.parse(_numberTwo));
+
+  calculate.calculate(int.parse(_processId));
 }
+
 
 void get welcomeWrite {
   String welcome = "Calculator'a Hoş Geldiniz\n\n";
